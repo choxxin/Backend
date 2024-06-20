@@ -17,6 +17,7 @@ const uploadOnCloudinary = async (localFilePath) => {
       resource_type: "auto", //automatically find the typr of the file
     });
     console.log("File has uploaded on cloudinary ", response.url);
+    fs.unlinkSync(localFilePath);
     return response;
   } catch (error) {
     fs.unlinkSync(localFilePath); //remove the locally temporary file path
